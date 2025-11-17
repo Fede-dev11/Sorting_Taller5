@@ -1,6 +1,7 @@
 # Sorting_Taller5
 Ordenación Java
         Decisiones de Diseño y Arquitectura
+
 El código sigue una estructura modular con la siguiente división por paquetes:
 
 - dominio: Contiene la lógica pura de los algoritmos de ordenamiento.
