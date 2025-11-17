@@ -28,19 +28,30 @@ Se han implementado validaciones y manejos para los siguientes casos especiales:
 - Arreglo Ya Ordenado (Bubble Sort): La implementación de Bubble Sort incluye una optimización. Utiliza una bandera swapped  para detectar si se realizó algún intercambio en una pasada. Si una pasada se completa sin intercambios (!swapped), significa que el arreglo ya está ordenado, y el ciclo principal termina mediante break.
 - Validación de Entrada: La utilidad validacion_entradadatos garantiza que el usuario ingrese un número entero para el tamaño del arreglo (mayor o igual a 0) y un número entero para cada elemento. Se manejan errores de formato de número (NumberFormatException) en el menú.
 		    Cómo Ejecutar el Proyecto
+
 El proyecto se ejecuta desde la clase principal Main en el paquete org.sorting.
+
 Compilación: Compila todas las clases (.java) en sus respectivos directorios (paquetes).
+
 Ejecución: Ejecuta el método main de la clase Main.
+
 El programa se ejecutará en modo interactivo, presentando el siguiente menú:
+
 Pasos en la Ejecución:
 
 <img width="276" height="165" alt="image" src="https://github.com/user-attachments/assets/66a1d60b-2796-474c-9602-f417f54a326e" />
 
 Selecciona una opción del menú (1, 2, o 3).
-	El sistema solicitará el tamaño del arreglo.
-I	ngresa cada uno de los elementos del arreglo, uno por uno.
+		
+- El sistema solicitará el tamaño del arreglo.
+  
+- Ingresa cada uno de los elementos del arreglo, uno por uno.
+  
 El sistema mostrará:
-	El Arreglo a ordenar original.
-	La trazabilidad del algoritmo (si está habilitada, como en Selection Sort e Insertion Sort ).
-	El RESULTADO FINAL con el arreglo ya ordenado.
+
+	- El Arreglo a ordenar original.
+ 
+	- La trazabilidad del algoritmo (si está habilitada, como en Selection Sort e Insertion Sort ).
+   
+	- El RESULTADO FINAL con el arreglo ya ordenado.
 Para salir, selecciona la opción 4.
