@@ -1,4 +1,4 @@
-Descripción General
+### Descripción General
 
 Este proyecto implementa y compara varios algoritmos de ordenamiento aplicados a diferentes conjuntos de datos obtenidos desde archivos CSV. La arquitectura está diseñada para ser modular, separando la lógica de ordenación, la carga de datos, el control de ejecución y la interacción con el usuario.
 
@@ -8,7 +8,7 @@ Estructura del Proyecto
 
 El código se organiza en los siguientes paquetes:
 
-### 1. dominio — Lógica de Ordenamiento
+## 1. dominio — Lógica de Ordenamiento
 
 Contiene las implementaciones de los algoritmos:
 
@@ -32,7 +32,7 @@ Un Comparator<Registro> para decidir el criterio de ordenación
 
 Un objeto Metrics para almacenar las estadísticas del algoritmo
 
-2. Util — Herramientas Auxiliares
+### 2. Util — Herramientas Auxiliares
 
 CSVReader
 Lee los archivos CSV del proyecto:
@@ -65,7 +65,7 @@ porStock()
 Resultado
 Representa el resultado final de un algoritmo: nombre, tiempo y métricas.
 
-3. controlador — Capa de Control
+### 3. controlador — Capa de Control
 
 Control_sort
 Gestiona:
@@ -103,7 +103,7 @@ Registra el resumen en Resultado
 
 Al finalizar, compara los resultados para determinar qué algoritmo fue más eficiente.
 
-4. org.sorting — Capa de Presentación
+### 4. org.sorting — Capa de Presentación
 
 Main
 Clase principal que muestra el menú:
@@ -124,7 +124,7 @@ Métricas detalladas
 
 Un reporte final comparando los algoritmos
 
-	 Casos Borde Considerados
+### Casos Borde Considerados
 -  Arreglos vacíos o con un solo elemento
 
 Los métodos verifican n <= 1 y retornan sin procesar.
@@ -145,7 +145,7 @@ Insertion Sort aprovecha su eficiencia y reduce tiempo y swaps.
 
 El menú controla errores tipo NumberFormatException.
 
-		Cómo Ejecutar el Proyecto
+### Cómo Ejecutar el Proyecto
 
 Ejecutar
 java org.sorting.Main
