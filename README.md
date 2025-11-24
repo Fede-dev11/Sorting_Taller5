@@ -1,10 +1,10 @@
-		 Descripción General
+Descripción General
 
 Este proyecto implementa y compara varios algoritmos de ordenamiento aplicados a diferentes conjuntos de datos obtenidos desde archivos CSV. La arquitectura está diseñada para ser modular, separando la lógica de ordenación, la carga de datos, el control de ejecución y la interacción con el usuario.
 
 El sistema permite analizar el rendimiento de cada algoritmo mediante métricas como comparaciones, intercambios (swaps) y tiempo de ejecución.
 
-		Estructura del Proyecto
+Estructura del Proyecto
 
 El código se organiza en los siguientes paquetes:
 
