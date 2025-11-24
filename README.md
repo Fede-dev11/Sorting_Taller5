@@ -1,57 +1,170 @@
-# Sorting_Taller5
-Ordenación Java
-        Decisiones de Diseño y Arquitectura
+		 Descripción General
 
-El código sigue una estructura modular con la siguiente división por paquetes:
+Este proyecto implementa y compara varios algoritmos de ordenamiento aplicados a diferentes conjuntos de datos obtenidos desde archivos CSV. La arquitectura está diseñada para ser modular, separando la lógica de ordenación, la carga de datos, el control de ejecución y la interacción con el usuario.
 
-- dominio: Contiene la lógica pura de los algoritmos de ordenamiento.
+El sistema permite analizar el rendimiento de cada algoritmo mediante métricas como comparaciones, intercambios (swaps) y tiempo de ejecución.
 
-- BurbbleSort: Implementa el algoritmo de la burbuja.
+		Estructura del Proyecto
 
-- Selectionsort: Implementa el algoritmo de selección.
+El código se organiza en los siguientes paquetes:
 
-- InsertionSort: Implementa el algoritmo de inserción.
+### 1. dominio — Lógica de Ordenamiento
 
-Cada clase de ordenamiento ofrece métodos sobrecargados, permitiendo la ejecución con y sin trazabilidad (trace).
-- Util: Contiene funcionalidades auxiliares.
-- SortingUtils : Maneja la entrada de datos del usuario (validacion_entradadatos) , muestra el arreglo original (Arreglo_a_orednar) , y verifica si todos los elementos del arreglo son iguales (todosIguales).
-- controlador: Actúa como la capa de control, manejando la interacción entre la lógica de ordenamiento y las utilidades.
-- Control_Sorting : Define los métodos para ejecutar cada algoritmo de ordenamiento (burbblesort, selectionsort, insertionsort). Se encarga de la validación inicial y muestra el resultado final.
-- org.sorting: Contiene la clase principal para la ejecución.
-- Main : Muestra el menú interactivo, lee la opción del usuario y llama a la función de control correspondiente.
+Contiene las implementaciones de los algoritmos:
 
-      Casos Borde Considerados
-Se han implementado validaciones y manejos para los siguientes casos especiales:
-- Arreglos Vacíos o con un Elemento (Insertion Sort): Si el tamaño del arreglo (n) es menor o igual a 1, el método sort retorna inmediatamente, ya que el arreglo se considera ordenado.
-- Arreglos con Elementos Idénticos: Antes de ejecutar cualquier algoritmo, la utilidad todosIguales verifica si todos los elementos son iguales. Si lo son, se imprime un mensaje indicando que el arreglo ya está ordenado y se detiene la ejecución del algoritmo.
+BurbbleSort
+Implementa Bubble Sort con optimización de corte temprano usando la bandera swapped.
 
-- Arreglo Ya Ordenado (Bubble Sort): La implementación de Bubble Sort incluye una optimización. Utiliza una bandera swapped  para detectar si se realizó algún intercambio en una pasada. Si una pasada se completa sin intercambios (!swapped), significa que el arreglo ya está ordenado, y el ciclo principal termina mediante break.
-- Validación de Entrada: La utilidad validacion_entradadatos garantiza que el usuario ingrese un número entero para el tamaño del arreglo (mayor o igual a 0) y un número entero para cada elemento. Se manejan errores de formato de número (NumberFormatException) en el menú.
-		    Cómo Ejecutar el Proyecto
+Selectionsort
+Implementa Selection Sort: busca el mínimo en cada iteración y lo coloca al inicio.
 
-El proyecto se ejecuta desde la clase principal Main en el paquete org.sorting.
+InsertionSort
+Implementa Insertion Sort, ideal para listas parcialmente ordenadas.
 
-Compilación: Compila todas las clases (.java) en sus respectivos directorios (paquetes).
+Registro
+Representa un elemento genérico proveniente de los CSV (citas, pacientes o inventario).
 
-Ejecución: Ejecuta el método main de la clase Main.
+Cada clase recibe:
 
-El programa se ejecutará en modo interactivo, presentando el siguiente menú:
+Un arreglo de Registro
 
-Pasos en la Ejecución:
+Un Comparator<Registro> para decidir el criterio de ordenación
 
-<img width="276" height="165" alt="image" src="https://github.com/user-attachments/assets/66a1d60b-2796-474c-9602-f417f54a326e" />
+Un objeto Metrics para almacenar las estadísticas del algoritmo
 
-Selecciona una opción del menú (1, 2, o 3).
-		
-- El sistema solicitará el tamaño del arreglo.
-  
-- Ingresa cada uno de los elementos del arreglo, uno por uno.
-  
-El sistema mostrará:
+2. Util — Herramientas Auxiliares
 
-	- El Arreglo a ordenar original.
- 
-	- La trazabilidad del algoritmo (si está habilitada, como en Selection Sort e Insertion Sort ).
-   
-	- El RESULTADO FINAL con el arreglo ya ordenado.
-Para salir, selecciona la opción 4.
+CSVReader
+Lee los archivos CSV del proyecto:
+
+citas_100.csv
+
+citas_100_casi_ordenadas.csv
+
+pacientes_500.csv
+
+inventario_500.csv
+
+Metrics
+Registra:
+
+Comparaciones
+
+Swaps
+
+Tiempo de ejecución
+
+Incluye comparadores predefinidos:
+
+porFecha()
+
+porApellido()
+
+porStock()
+
+Resultado
+Representa el resultado final de un algoritmo: nombre, tiempo y métricas.
+
+3. controlador — Capa de Control
+
+Control_sort
+Gestiona:
+
+Arreglos cargados desde los CSV
+
+Objeto Metrics
+
+Impresión de métricas
+
+Control central del flujo de ordenamiento
+
+Sort_methods
+Ejecuta los algoritmos sobre cada dataset:
+
+Citas por fecha
+
+Pacientes por apellido
+
+Inventario por stock
+
+Citas casi ordenadas
+
+Cada método:
+
+Carga los datos
+
+Ejecuta el algoritmo seleccionado
+
+Muestra el resultado ordenado en forma de tabla
+
+Imprime las métricas
+
+Registra el resumen en Resultado
+
+Al finalizar, compara los resultados para determinar qué algoritmo fue más eficiente.
+
+4. org.sorting — Capa de Presentación
+
+Main
+Clase principal que muestra el menú:
+
+<img width="332" height="154" alt="image" src="https://github.com/user-attachments/assets/e2c16ef8-e51d-435a-b617-af54e2b946ff" />
+
+Flujo del programa:
+
+El usuario selecciona un algoritmo.
+
+Se cargan los datasets (CSV).
+
+Se ejecuta el algoritmo sobre todas las listas.
+
+Se muestra:
+El arreglo ordenado
+Métricas detalladas
+
+Un reporte final comparando los algoritmos
+
+	 Casos Borde Considerados
+-  Arreglos vacíos o con un solo elemento
+
+Los métodos verifican n <= 1 y retornan sin procesar.
+
+-  Arreglos con elementos idénticos
+
+Los comparadores manejan valores repetidos sin generar errores.
+
+-  Bubble Sort con corte temprano
+
+Finaliza antes si no se realizaron intercambios en una iteración.
+
+-  Datos parcialmente ordenados
+
+Insertion Sort aprovecha su eficiencia y reduce tiempo y swaps.
+
+-  Validación de entrada
+
+El menú controla errores tipo NumberFormatException.
+
+		Cómo Ejecutar el Proyecto
+
+Ejecutar
+java org.sorting.Main
+
+El menú permitirá elegir el algoritmo a aplicar.
+
+- Salida Esperada
+
+Para cada dataset se muestra:
+
+Tabla ordenada
+
+Comparaciones
+
+Swaps
+
+Tiempo (ns)
+
+Resumen general del algoritmo
+
+Comparación entre algoritmos para elegir el más eficiente
+
